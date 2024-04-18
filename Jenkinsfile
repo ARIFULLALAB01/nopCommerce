@@ -20,12 +20,9 @@ pipeline {
                    project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
 
             }
-             post {
-                success {
-                    zip zipFile: 'nop.web.zip',
-                      archive: true,
-                      dir: './published',
-                      overwrite: true
+            post {
+                always {
+                   echo 'I will always say Hello again!'
                 }
             }
         }
