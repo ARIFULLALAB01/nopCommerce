@@ -5,22 +5,19 @@ pipeline {
     triggers {
         pollSCM('* * * * *')
     }
-    stages { 
+    stages {
         stage('scm') {
             steps {
                 git url: 'https://github.com/ARIFULLALAB01/nopCommerce.git',
-                   branch: 'develop'
+                    branch: 'develop'
             }
-
         }
-    }
-    stages { 
         stage('build') {
             steps {
                 sh 'dotnet publish -o published/ -c Release src/Presentation/Nop.Web/Nop.Web.csproj'
-            }
 
+            }
         }
+
     }
-        
 }
