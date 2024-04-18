@@ -21,6 +21,13 @@ pipeline {
 
             }
         }
-
+        post {
+                success {
+                    zip zipFile: 'nop.web.zip',
+                      archive: true,
+                      dir: './published',
+                      overwrite: true
+                }
+            }
     }
 }
